@@ -134,22 +134,12 @@
     <section id="contact" class="section alt">
       <div class="container">
         <h2>4) Kontakt</h2>
-        <form id="contactForm" class="form" novalidate>
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Ihr Name" required />
-          </label>
-          <label>
-            E-Mail
-            <input type="email" name="email" placeholder="you@example.com" required />
-          </label>
-          <label>
-            Nachricht
-            <textarea name="message" rows="5" placeholder="Wobei können wir helfen?" required></textarea>
-          </label>
-          <button class="btn" type="submit">Senden</button>
-          <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
-        </form>
+        <form id="contactForm">
+    <input type="text" name="name" placeholder="Dein Name" required><br>
+    <input type="email" name="email" placeholder="Deine E-Mail" required><br>
+    <textarea name="msg" placeholder="Deine Nachricht" required></textarea><br>
+    <button type="submit">Senden</button>
+  </form>
       </div>
     </section>
   </main>
