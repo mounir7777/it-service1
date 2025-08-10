@@ -74,22 +74,31 @@
     </section>
 
     <section id="contact" class="section alt">
-      <div class="container">
-        <h2>Kontakt</h2>
-        <form id="contactForm" class="form" novalidate>
-          <label> Name
-            <input type="text" name="name" placeholder="Ihr Name" required />
-          </label>
-          <label> E-Mail
-            <input type="email" name="email" placeholder="you@example.com" required />
-          </label>
-          <label> Nachricht
-            <textarea name="message" rows="5" placeholder="Wobei können wir helfen?" required></textarea>
-          </label>
-          <button class="btn" type="submit">Senden</button>
-          <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
-        </form>
+<div class="container">
+    <h2>Kontakt</h2>
+    <form id="contactForm" class="form" novalidate>
+      <!-- Honeypot (unsichtbar für Menschen, sichtbar für Bots) -->
+      <div class="hp-wrap" aria-hidden="true">
+        <label>Homepage
+          <input type="text" name="hp" tabindex="-1" autocomplete="off" />
+        </label>
       </div>
+      <!-- Timestamp -->
+      <input type="hidden" name="ts" id="ts" value="" />
+
+      <label> Name
+        <input type="text" name="name" placeholder="Ihr Name" required />
+      </label>
+      <label> E-Mail
+        <input type="email" name="email" placeholder="you@example.com" required />
+      </label>
+      <label> Nachricht
+        <textarea name="message" rows="5" placeholder="Wobei können wir helfen?" required></textarea>
+      </label>
+      <button class="btn" type="submit">Senden</button>
+      <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
     </section>
   </main>
 
