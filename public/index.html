@@ -1,33 +1,84 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" class="no-js">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IT Service Level1 – IT‑Dienstleistungen</title>
+
+  <title>IT Service Level1 – IT-Dienstleistungen für KMU in Berlin</title>
+  <meta name="description" content="IT Service Level1: Peripherie-Installation, IT-Helpdesk und Beratung. Schnell, klar, zuverlässig – auf Deutsch, Englisch und Französisch." />
+  <link rel="canonical" href="https://www.itservice-level1.example/" />
+
+  <!-- SEO / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT Service Level1" />
+  <meta property="og:title" content="IT-Dienstleistungen – schnell, klar, zuverlässig." />
+  <meta property="og:description" content="Installation, Support und Beratung für kleine Unternehmen." />
+  <meta property="og:url" content="https://www.itservice-level1.example/" />
+  <meta property="og:image" content="/public/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Icons (optional) -->
+  <link rel="icon" href="/public/assets/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/public/assets/apple-touch-icon.png" />
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="./styles.css" />
-  <meta name="description" content="IT Service Level1: Installation von Peripherie, IT-Helpdesk, Beratung & Kontakt.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "IT Service Level1",
+    "image": "/public/assets/og-cover.jpg",
+    "description": "Peripherie-Installation, IT-Helpdesk und Beratung in Berlin.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Berlin",
+      "addressCountry": "DE"
+    },
+    "areaServed": "DE",
+    "url": "https://www.itservice-level1.example/",
+    "telephone": "+49 30 000000",
+    "email": "info@itservice-level1.example",
+    "openingHours": "Mo-Fr 09:00-18:00"
+  }
+  </script>
+
+  <script>document.documentElement.classList.remove('no-js');</script>
 </head>
 <body>
-  <header class="site-header">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header" role="banner">
     <div class="container header-wrap">
-      <div class="brand">
-        <span class="logo">IT</span>
-        <span class="brand-name">Service Level1</span>
-      </div>
-      <nav class="nav" id="nav">
-        <a href="#install">Peripherie‑Installation</a>
-        <a href="#helpdesk">IT‑Helpdesk</a>
-        <a href="#consulting">Beratung</a>
-        <a href="#contact">Kontakt</a>
+      <a class="brand" href="#home" aria-label="IT Service Level1 Startseite">
+        <!-- Minimal SVG-Logo -->
+        <svg class="logo" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
+          <rect width="24" height="24" rx="6" fill="currentColor"></rect>
+          <path d="M7 7h2v10H7zm4 0h6v2h-4v2h3v2h-3v4h-2z" fill="#fff"></path>
+        </svg>
+        <span class="brand-name">IT Service Level1</span>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <button class="burger" id="burger" aria-controls="navMenu" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+        <ul id="navMenu" class="nav__menu">
+          <li><a href="#install">Peripherie-Installation</a></li>
+          <li><a href="#helpdesk">IT-Helpdesk</a></li>
+          <li><a href="#consulting">Beratung</a></li>
+          <li><a class="btn btn--small" href="#contact">Kontakt</a></li>
+        </ul>
       </nav>
-      <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero">
       <div class="container">
-        <h1>IT‑Dienstleistungen – schnell, klar, zuverlässig.</h1>
+        <h1>IT-Dienstleistungen – schnell, klar, zuverlässig.</h1>
         <p>Wir unterstützen kleine Unternehmen bei Installation, Support und Beratung – auf Deutsch, Englisch und Französisch.</p>
         <a class="btn" href="#contact">Jetzt anfragen</a>
       </div>
@@ -35,7 +86,7 @@
 
     <section id="install" class="section">
       <div class="container">
-        <h2>1) Peripherie‑Installation</h2>
+        <h2>1) Peripherie-Installation</h2>
         <div class="grid">
           <article class="card">
             <h3>Drucker & Scanner</h3>
@@ -43,11 +94,11 @@
           </article>
           <article class="card">
             <h3>Netzwerk & WLAN</h3>
-            <p>Switch/Access‑Points, VLAN‑Grundlagen, sichere WPA2/WPA3‑Konfiguration.</p>
+            <p>Switch/Access-Points, VLAN-Grundlagen, sichere WPA2/WPA3-Konfiguration.</p>
           </article>
           <article class="card">
             <h3>Arbeitsplätze</h3>
-            <p>Monitore, Docking‑Stations, Peripherie, Performance‑Checks & Updates.</p>
+            <p>Monitore, Docking-Stations, Peripherie, Performance-Checks & Updates.</p>
           </article>
         </div>
       </div>
@@ -55,11 +106,11 @@
 
     <section id="helpdesk" class="section alt">
       <div class="container">
-        <h2>2) IT‑Helpdesk</h2>
+        <h2>2) IT-Helpdesk</h2>
         <ul class="list">
-          <li>Remote‑Support (Windows, macOS, Linux)</li>
-          <li>Backup‑Prüfung & Wiederherstellung</li>
-          <li>E‑Mail‑Probleme, Office‑Support, Benutzerverwaltung</li>
+          <li>Remote-Support (Windows, macOS, Linux)</li>
+          <li>Backup-Prüfung & Wiederherstellung</li>
+          <li>E-Mail-Probleme, Office-Support, Benutzerverwaltung</li>
         </ul>
       </div>
     </section>
@@ -69,12 +120,12 @@
         <h2>3) Beratung</h2>
         <div class="grid two">
           <article class="card">
-            <h3>IT‑Sicherheit</h3>
-            <p>Grundschutz, Patch‑Management, Passwort‑Richtlinien, 2FA.</p>
+            <h3>IT-Sicherheit</h3>
+            <p>Grundschutz, Patch-Management, Passwort-Richtlinien, 2FA.</p>
           </article>
           <article class="card">
             <h3>Modernisierung</h3>
-            <p>Cloud‑Einführung, Automatisierung, Monitoring, Kosten‑Optimierung.</p>
+            <p>Cloud-Einführung, Automatisierung, Monitoring, Kosten-Optimierung.</p>
           </article>
         </div>
       </div>
@@ -89,7 +140,7 @@
             <input type="text" name="name" placeholder="Ihr Name" required />
           </label>
           <label>
-            E‑Mail
+            E-Mail
             <input type="email" name="email" placeholder="you@example.com" required />
           </label>
           <label>
@@ -112,3 +163,4 @@
   <script src="./script.js"></script>
 </body>
 </html>
+
