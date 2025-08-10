@@ -1,8 +1,8 @@
 (() => {
-  const $ = (s, p=document) => p.querySelector(s);
-  const $$ = (s, p=document) => [...p.querySelectorAll(s)];
+  const $ = (s, p = document) => p.querySelector(s);
+  const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 
-  // Mobile Menü
+  // ----- Mobile-Menü -----
   const burger = $('#burger');
   const menu = $('#navMenu');
   if (burger && menu) {
@@ -11,20 +11,28 @@
       burger.setAttribute('aria-expanded', String(open));
       burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
     });
-    $$('#navMenu a').forEach(a => a.addEventListener('click', () => {
-      menu.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false');
-    }));
+    $$('#navMenu a').forEach(a =>
+      a.addEventListener('click', () => {
+        menu.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      })
+    );
   }
 
-  // Footer-Jahr
-  const yearEl = document.getElementById('year');
+  // ----- Footer-Jahr -----
+  const yearEl = $('#year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // Kontaktformular
-  const form = document.getElementById('contactForm');
-  const msgEl = document.getElementById('formMsg');
+  // ----- Kontaktformular -----
+  const form = $('#contactForm');
+  const msgEl = $('#formMsg');
+  const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
-  const setMsg = (text, ok=false) => {
+  // Spam-Schutz: Timestamp-Feld beim Laden setzen
+  const tsField = $('#ts');
+  if (tsField) tsField.value = String(Date.now());
+
+  const setMsg = (text, ok = false) => {
     if (!msgEl) return;
     msgEl.textContent = text || '';
     msgEl.className = 'form-msg ' + (ok ? 'ok' : 'err');
@@ -33,35 +41,48 @@
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (msgEl) { msgEl.textContent = ''; msgEl.className = 'form-msg'; }
+      setMsg('', false);
 
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        msg: form.message.value.trim(),
+        // Spam-Schutz:
+        hp: form.hp ? form.hp.value.trim() : '',          // Honeypot (muss leer sein)
+        ts: tsField ? Number(tsField.value) : 0           // Timestamp vom Seitenaufruf
+      };
 
-      if (!name || !email || !message) {
+      // Basische Checks im Browser
+      if (!data.name || !data.email || !data.msg) {
         return setMsg('Bitte füllen Sie alle Felder aus.');
       }
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) {
         return setMsg('Bitte geben Sie eine gültige E-Mail ein.');
       }
+
+      // Button sperren, Doppel-Submit verhindern
+      submitBtn && (submitBtn.disabled = true);
 
       try {
         const res = await fetch('/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, msg: message })
+          body: JSON.stringify(data)
         });
 
-        const data = await res.json().catch(() => ({}));
-        if (res.ok && data.ok) {
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.ok) {
           form.reset();
+          // neuen Timestamp für nächsten Submit setzen
+          if (tsField) tsField.value = String(Date.now());
           setMsg('Danke! Ihre Nachricht wurde gesendet.', true);
         } else {
-          setMsg(data.message || 'Senden fehlgeschlagen – bitte später erneut.');
+          setMsg(json.message || 'Senden fehlgeschlagen – bitte später erneut.');
         }
-      } catch {
+      } catch (err) {
         setMsg('Keine Verbindung zum Server.');
+      } finally {
+        submitBtn && (submitBtn.disabled = false);
       }
     });
   }
