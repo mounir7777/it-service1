@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IT Service Level1 – IT‑Dienstleistungen</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <meta name="description" content="IT Service Level1: Installation von Peripherie, IT-Helpdesk, Beratung & Kontakt.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <div class="brand">
+        <span class="logo">IT</span>
+        <span class="brand-name">Service Level1</span>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="#install">Peripherie‑Installation</a>
+        <a href="#helpdesk">IT‑Helpdesk</a>
+        <a href="#consulting">Beratung</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>IT‑Dienstleistungen – schnell, klar, zuverlässig.</h1>
+        <p>Wir unterstützen kleine Unternehmen bei Installation, Support und Beratung – auf Deutsch, Englisch und Französisch.</p>
+        <a class="btn" href="#contact">Jetzt anfragen</a>
+      </div>
+    </section>
+
+    <section id="install" class="section">
+      <div class="container">
+        <h2>1) Peripherie‑Installation</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Drucker & Scanner</h3>
+            <p>Einrichtung im LAN/WLAN, Treiber, Freigaben, Testseiten, Nutzerrechte.</p>
+          </article>
+          <article class="card">
+            <h3>Netzwerk & WLAN</h3>
+            <p>Switch/Access‑Points, VLAN‑Grundlagen, sichere WPA2/WPA3‑Konfiguration.</p>
+          </article>
+          <article class="card">
+            <h3>Arbeitsplätze</h3>
+            <p>Monitore, Docking‑Stations, Peripherie, Performance‑Checks & Updates.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="helpdesk" class="section alt">
+      <div class="container">
+        <h2>2) IT‑Helpdesk</h2>
+        <ul class="list">
+          <li>Remote‑Support (Windows, macOS, Linux)</li>
+          <li>Backup‑Prüfung & Wiederherstellung</li>
+          <li>E‑Mail‑Probleme, Office‑Support, Benutzerverwaltung</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="consulting" class="section">
+      <div class="container">
+        <h2>3) Beratung</h2>
+        <div class="grid two">
+          <article class="card">
+            <h3>IT‑Sicherheit</h3>
+            <p>Grundschutz, Patch‑Management, Passwort‑Richtlinien, 2FA.</p>
+          </article>
+          <article class="card">
+            <h3>Modernisierung</h3>
+            <p>Cloud‑Einführung, Automatisierung, Monitoring, Kosten‑Optimierung.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
+      <div class="container">
+        <h2>4) Kontakt</h2>
+        <form id="contactForm" class="form" novalidate>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Ihr Name" required />
+          </label>
+          <label>
+            E‑Mail
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Nachricht
+            <textarea name="message" rows="5" placeholder="Wobei können wir helfen?" required></textarea>
+          </label>
+          <button class="btn" type="submit">Senden</button>
+          <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> IT Service Level1 • Berlin • info@example.com</p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
